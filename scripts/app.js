@@ -6,12 +6,14 @@
  * Time: 9:50 AM
  */
 
-define(['jQuery', 'views/home/HomeView'],
-    function ($, HomeView) {
+define(['jquery', 'BackStack', 'views/home/HomeView'],
+    function ($, BackStack, HomeView) {
         return {
             init:function () {
-                var firstPage = (new HomeView).render().$el;
-                $('body').html(firstPage);
+
+                var navigator = new BackStack.StackNavigator({id:'container', firstView:HomeView})
+                $('body').html(navigator.render().el);
+
             }
         };
     });

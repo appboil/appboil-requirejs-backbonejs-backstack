@@ -7,13 +7,13 @@
  */
 
 define([
-    'jQuery',
+    'jquery',
     'underscore',
-    'Backbone',
+    'BackStack',
     'views/next/NextView',
     'text!views/home/HomeViewTemplate.html!strip'],
-    function ($, _, Backbone, NextView, HomeViewTemplate) {
-        var HomeView = Backbone.View.extend({
+    function ($, _, BackStack, NextView, HomeViewTemplate) {
+        var HomeView = BackStack.StackView.extend({
 
             events:{
                 'click #gotoNext':'gotoNext'
@@ -25,8 +25,9 @@ define([
             },
 
             gotoNext:function (event) {
-                var nextPage = (new NextView).render().$el;
-                $('body').html(nextPage);
+
+                this.stackNavigator.pushView(NextView);
+
             }
         });
 

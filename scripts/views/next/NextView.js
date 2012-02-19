@@ -6,10 +6,10 @@
  * Time: 9:53 AM
  */
 
-define(['underscore', 'Backbone', 'text!views/next/NextViewTemplate.html!strip'],
-    function (_, Backbone, NextViewTemplate) {
+define(['underscore', 'BackStack', 'text!views/next/NextViewTemplate.html!strip'],
+    function (_, BackStack, NextViewTemplate) {
 
-        var NextView = Backbone.View.extend({
+        var NextView = BackStack.StackView.extend({
 
             render:function () {
                 this.$el.html(_.template(NextViewTemplate));
