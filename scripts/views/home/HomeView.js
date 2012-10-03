@@ -6,17 +6,12 @@
  * Time: 9:53 AM
  */
 
-define([
-    'jquery',
-    'underscore',
-    'BackStack',
-    'views/next/NextView',
-    'text!views/home/HomeViewTemplate.html!strip'],
-    function ($, _, BackStack, NextView, HomeViewTemplate) {
-        var HomeView = BackStack.StackView.extend({
+define(['jquery', 'underscore', 'Backbone', 'views/next/NextView', 'text!views/home/HomeViewTemplate.html!strip'],
+    function ($, _, Backbone, NextView, HomeViewTemplate) {
+        var HomeView = Backbone.View.extend({
 
             events:{
-                'click #gotoNext':'gotoNext'
+                'click #btnNextView':'btnNextView_clickHandler'
             },
 
             render:function () {
@@ -24,7 +19,7 @@ define([
                 return this;
             },
 
-            gotoNext:function (event) {
+            btnNextView_clickHandler:function (event) {
 
                 this.stackNavigator.pushView(NextView);
 
